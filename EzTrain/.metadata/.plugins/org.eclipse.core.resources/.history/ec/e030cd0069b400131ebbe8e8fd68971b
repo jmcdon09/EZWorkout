@@ -1,0 +1,7 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="random">#26AE90</color>
+    <color name="button">#23048903</color>
+
+</resources>

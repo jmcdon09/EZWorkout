@@ -1,0 +1,8 @@
+<resources>
+
+    <color name="action_bar_background">#4db6af</color>
+    <color name="background">#eee</color>
+    <color name="font">#444</color>
+    <color name="accent">#ccc</color>
+
+</resources>
