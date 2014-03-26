@@ -55,8 +55,7 @@ public class AddExercises extends Activity {
 			startActivity(preview);
 		}
     });    
-	}
-	
+	}	
 	public String[] listExercises(String muscle){
 		String exercises[];
 		if (muscle == "Chest"){

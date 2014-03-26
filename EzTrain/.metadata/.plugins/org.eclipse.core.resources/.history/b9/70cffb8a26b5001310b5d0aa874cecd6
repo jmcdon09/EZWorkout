@@ -35,7 +35,26 @@ public class AddExercises extends Activity {
 		
 		final ListView list_view = (ListView) findViewById(R.id.list_my_workouts);
 		
-		String exercises[] = listExercises(muscle);
+		String exercises[] = null;
+		
+		if (muscle == "Chest"){
+			exercises =  getResources().getStringArray(R.array.chest);			
+		}
+		else if(muscle == "Abdominals"){
+			exercises =  getResources().getStringArray(R.array.abdominals);			
+		}
+		else if(muscle == "Arms"){
+			exercises =  getResources().getStringArray(R.array.arms);			
+		}
+		else if(muscle == "Back"){
+			exercises =  getResources().getStringArray(R.array.back);			
+		}
+		else if(muscle == "Legs"){
+			exercises =  getResources().getStringArray(R.array.legs);			
+		}
+		else if(muscle == "Shoulders"){
+			exercises =  getResources().getStringArray(R.array.shoudlers);			
+		}
 		
         list_view.setAdapter(new ArrayAdapter<String>(this, R.layout.list_row, exercises));
 		// Show the Up button in the action bar.
@@ -55,30 +74,8 @@ public class AddExercises extends Activity {
 			startActivity(preview);
 		}
     });    
-	}
-	
-	public String[] listExercises(String muscle){
-		String exercises[];
-		if (muscle == "Chest"){
-			exercises =  getResources().getStringArray(R.array.chest);			
-		}
-		else if(muscle == "Abdominals"){
-			exercises =  getResources().getStringArray(R.array.abdominals);			
-		}
-		else if(muscle == "Arms"){
-			exercises =  getResources().getStringArray(R.array.arms);			
-		}
-		else if(muscle == "Back"){
-			exercises =  getResources().getStringArray(R.array.back);			
-		}
-		else if(muscle == "Legs"){
-			exercises =  getResources().getStringArray(R.array.legs);			
-		}
-		else{
-			exercises =  getResources().getStringArray(R.array.shoudlers);			
-		}
-		return exercises;
-	}
+	}	
+
 	/**
 	 * Set up the {@link android.app.ActionBar}.
 	 */
