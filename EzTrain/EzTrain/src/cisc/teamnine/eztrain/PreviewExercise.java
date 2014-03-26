@@ -6,6 +6,7 @@ import android.view.Menu;
 
 public class PreviewExercise extends Activity {
 
+	String exercise; 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -9,8 +9,14 @@ package cisc.teamnine.eztrain;
 
 public final class R {
     public static final class array {
+        public static final int abdominals=0x7f070006;
+        public static final int arms=0x7f070004;
+        public static final int back=0x7f070008;
+        public static final int chest=0x7f070003;
+        public static final int legs=0x7f070007;
         public static final int muscle_groups=0x7f070001;
         public static final int my_workouts=0x7f070002;
+        public static final int shoudlers=0x7f070005;
         public static final int workout_type=0x7f070000;
     }
     public static final class attr {
@@ -102,9 +108,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_home_screen=0x7f030003;
         public static final int activity_my_progress=0x7f030004;
         public static final int activity_my_workouts=0x7f030005;
-        public static final int activity_preview_exercise=0x7f030006;
-        public static final int activity_preview_workout=0x7f030007;
-        public static final int list_row=0x7f030008;
+        public static final int activity_preview_design=0x7f030006;
+        public static final int activity_preview_exercise=0x7f030007;
+        public static final int activity_preview_workout=0x7f030008;
+        public static final int list_row=0x7f030009;
     }
     public static final class menu {
         public static final int active_workout=0x7f090000;
@@ -116,11 +123,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int main_activity_actions=0x7f090006;
         public static final int my_progress=0x7f090007;
         public static final int my_workouts=0x7f090008;
-        public static final int preview_exercise=0x7f090009;
-        public static final int preview_workout=0x7f09000a;
-        public static final int start_workout=0x7f09000b;
-        public static final int update_progress=0x7f09000c;
-        public static final int workout_search=0x7f09000d;
+        public static final int preview_design=0x7f090009;
+        public static final int preview_exercise=0x7f09000a;
+        public static final int preview_workout=0x7f09000b;
+        public static final int start_workout=0x7f09000c;
+        public static final int update_progress=0x7f09000d;
+        public static final int workout_search=0x7f09000e;
     }
     public static final class string {
         public static final int action_home=0x7f060026;
@@ -159,6 +167,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int title_activity_display_workouts=0x7f06000e;
         public static final int title_activity_my_progress=0x7f060005;
         public static final int title_activity_my_workouts=0x7f06000a;
+        public static final int title_activity_preview_design=0x7f06002e;
         public static final int title_activity_preview_exercise=0x7f06002b;
         public static final int title_activity_preview_workout=0x7f060009;
         public static final int title_activity_start_workout=0x7f060004;

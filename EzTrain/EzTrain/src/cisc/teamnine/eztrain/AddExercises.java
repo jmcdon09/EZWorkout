@@ -4,44 +4,77 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-//import android.content.Intent;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class AddExercises extends Activity {
 
-	String EXERCISE_NAME;
+	String workout_name;
+	String muscle_group;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Bundle info = getIntent().getExtras();
+		Bundle get_info = getIntent().getExtras();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_exercises);
 		
-		String workout = info.getString("WORKOUT_NAME");
-		String muscle = info.getString("MUSCLE_GROUP");
+		String workout = get_info.getString("WORKOUT_NAME");
+		String muscle = get_info.getString("MUSCLE_GROUP");
+		workout_name=workout;
+		muscle_group=muscle;
 		
-		TextView workout_name = (TextView) findViewById(R.id.workout_name);
-		workout_name.setText(" " + workout);
+		final TextView workout_design = (TextView) findViewById(R.id.workout_name);
+		workout_design.setText(" " + workout);
 		
-		TextView muscle_group = (TextView) findViewById(R.id.muscle_group);
-		muscle_group.setText(muscle);
+		final TextView muscle_design = (TextView) findViewById(R.id.muscle_group);
+		muscle_design.setText(muscle);
 		
+		final ListView list_view = (ListView) findViewById(R.id.list_my_workouts);
+		
+		String exercises[] = null;
+		
+		if (muscle == "Chest"){
+			exercises =  getResources().getStringArray(R.array.chest);			
+		}
+		else if(muscle == "Abdominals"){
+			exercises =  getResources().getStringArray(R.array.abdominals);			
+		}
+		else if(muscle == "Arms"){
+			exercises =  getResources().getStringArray(R.array.arms);			
+		}
+		else if(muscle == "Back"){
+			exercises =  getResources().getStringArray(R.array.back);			
+		}
+		else if(muscle == "Legs"){
+			exercises =  getResources().getStringArray(R.array.legs);			
+		}
+		else if(muscle == "Shoulders"){
+			exercises =  getResources().getStringArray(R.array.shoudlers);			
+		}
+		
+        list_view.setAdapter(new ArrayAdapter<String>(this, R.layout.list_row, exercises));
 		// Show the Up button in the action bar.
+        
 		setupActionBar();
-	}
+
 
 	
-	
-	public void onItemClick(AdapterView<?> arg0, View v, int position,
-			long id) {
-		Intent preview = new Intent(AddExercises.this, PreviewExercise.class);
-		startActivity(preview);
-		
-	}
-	
+    list_view.setOnItemClickListener(new OnItemClickListener(){
+		public void onItemClick(AdapterView<?> arg0, View v, int position,
+				long id) {
+			Intent preview = new Intent(AddExercises.this, PreviewExercise.class);
+			Bundle send_info = new Bundle();
+			String exercise = list_view.getItemAtPosition(position).toString();
+			send_info.putString("EXERCISE_NAME", exercise);
+			preview.putExtras(send_info);
+			startActivity(preview);
+		}
+    });    
+	}	
 
 	/**
 	 * Set up the {@link android.app.ActionBar}.
@@ -50,13 +83,6 @@ public class AddExercises extends Activity {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.add_exercises, menu);
-		return true;
 	}
 
 	@Override
