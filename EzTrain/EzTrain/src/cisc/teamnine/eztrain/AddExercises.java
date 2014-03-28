@@ -1,5 +1,7 @@
 package cisc.teamnine.eztrain;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,15 +9,19 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class AddExercises extends Activity {
 
+	ArrayList<String> exercise_names;
+	ArrayList<String> sets;
+	ArrayList<String> reps;
 	String workout_name;
 	String muscle_group;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Bundle get_info = getIntent().getExtras();
@@ -24,9 +30,19 @@ public class AddExercises extends Activity {
 		
 		String workout = get_info.getString("WORKOUT_NAME");
 		String muscle = get_info.getString("MUSCLE_GROUP");
-		workout_name=workout;
-		muscle_group=muscle;
+		workout_name = workout;
+		muscle_group = muscle;
 		
+		exercise_names = get_info.getStringArrayList("EXERCISES");
+	    sets = get_info.getStringArrayList("REPS");
+	    reps = get_info.getStringArrayList("SETS");
+	    
+		String exercise_name = get_info.getString("EXERCISES");
+		String set_num = get_info.getString("SETS");
+		String rep_num = get_info.getString("REPS");
+		
+		if (!(exercise_name.equalsIgnoreCase("")))
+			updateWorkout(exercise_name, set_num, rep_num);
 		
 		final TextView workout_design = (TextView) findViewById(R.id.workout_name);
 		workout_design.setText(" " + workout);
@@ -41,15 +57,18 @@ public class AddExercises extends Activity {
         // Show the Up button in the action bar.
 		setupActionBar();
 
-
-	
-    list_view.setOnItemClickListener(new OnItemClickListener(){
+		list_view.setOnItemClickListener(new OnItemClickListener(){
 		public void onItemClick(AdapterView<?> arg0, View v, int position,
 				long id) {
 			Intent preview = new Intent(AddExercises.this, PreviewExercise.class);
 			Bundle send_info = new Bundle();
 			String exercise = list_view.getItemAtPosition(position).toString();
 			send_info.putString("EXERCISE_NAME", exercise);
+			send_info.putString("WORKOUT_NAME", workout_name);
+			send_info.putStringArrayList("EXERCISES", exercise_names);
+			send_info.putStringArrayList("SETS", reps);
+			send_info.putStringArrayList("REPS", sets);
+			
 			preview.putExtras(send_info);
 			startActivity(preview);
 		}
@@ -79,6 +98,12 @@ public class AddExercises extends Activity {
 			exercises =  getResources().getStringArray(R.array.shoudlers);			
 		}
 		return exercises;
+	}
+	
+	private void updateWorkout(String exercise, String set, String rep){
+		exercise_names.add(exercise);
+		sets.add(set);
+		reps.add(rep);
 	}
 	
 	private void setupActionBar() {

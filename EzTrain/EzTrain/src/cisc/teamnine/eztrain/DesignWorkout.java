@@ -34,8 +34,6 @@ public class DesignWorkout extends Activity {
 		START_DESIGN.setOnClickListener(handler);
  	}
 
-
-	
 	
 	/**
 	 * Set up the {@link android.app.ActionBar}.
