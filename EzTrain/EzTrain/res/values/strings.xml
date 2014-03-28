@@ -2,19 +2,16 @@
 <resources>
 
     <string name="app_name">EZWorkout</string>
-
-    <string-array name="workout_type">
-        <item>Cardio</item>
-        <item>Weight Training</item>
-    </string-array>
+        
     <string-array name="muscle_groups">
         <item>Arms</item>
-        <item>Chest</item>
         <item>Abdominals</item>
-        <item>Shoulders</item>
-        <item>Legs</item>
+        <item>Chest</item>
         <item>Back</item>
+        <item>Legs</item>
+        <item>Shoulders</item>
     </string-array>
+    
     <string-array name="my_workouts">
         <item>Biceps</item>
         <item>Major Chest Workout</item>
@@ -22,7 +19,11 @@
 
     <string-array name="chest">
         <item>Benchpress</item>
-        <item>Dumbell Flys</item>
+        <item>Butterflys</item>
+        <item>Push Ups</item>
+        <item>Iron Cross</item>
+        <item>Decline Dumbell Press</item>
+        <item></item>
     </string-array>
     
     <string-array name="arms">
@@ -56,6 +57,7 @@
         <item>Standing Good Mornings</item>
         <item>Seated Good Mornings</item>
         <item>Reverse Hypers</item>
+        <item>Chin Ups</item>
     </string-array>
     
     <string name="workout_now">Start Workout</string>
@@ -68,11 +70,8 @@
     <string name="title_activity_create_exercise">Create Exercise</string>
     <string name="title_activity_preview_workout">Preview Workout</string>
     <string name="title_activity_my_workouts">My Workouts</string>
-    <string name="title_activity_workout_search">Workout Search</string>
     <string name="title_activity_workout">Workout</string>
-    <string name="title_activity_update_progress">Update Progress</string>
-    <string name="title_activity_display_workouts">DisplayWorkouts</string>
-    <string name="title_activity_active_workout">ActiveWorkout</string>
+    <string name="title_activity_active_workout">Active Workout</string>
     <string name="workout_name">Workout Name</string>
     <string name="return_workout"></string>
     <string name="action_settings">Action Settings</string>
@@ -100,9 +99,12 @@
     <string name="set1">4</string>
     <string name="rep1">8#821112</string>
     <string name="exercise_detail">Details here</string>
-    <string name="title_activity_preview_exercise">PreviewExercise</string>
+    <string name="title_activity_preview_exercise">Preview Exercise</string>
     <string name="hello_world">Hello world!</string>
     <string name="preview_workout">Preview Workout</string>
-    <string name="title_activity_preview_design">PreviewDesign</string>
+    <string name="title_activity_preview_design">Preview Design</string>
+    <string name="exercise">Exercise: </string>
+    <string name="preview_exer_set">Sets: </string>
+    <string name="preview_exer_reps">Reps: </string>
 
 </resources>

@@ -55,14 +55,6 @@
                 android:value="cisc.teamnine.eztrain.DesignWorkout" />
         </activity>
         <activity
-            android:name="cisc.teamnine.eztrain.CreateExercise"
-            android:label="@string/title_activity_create_exercise"
-            android:parentActivityName="cisc.teamnine.eztrain.AddExercises" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="cisc.teamnine.eztrain.AddExercises" />
-        </activity>
-        <activity
             android:name="cisc.teamnine.eztrain.PreviewWorkout"
             android:label="@string/title_activity_preview_workout"
             android:parentActivityName="cisc.teamnine.eztrain.AddExercises" >
@@ -78,43 +70,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cisc.teamnine.eztrain.StartWorkout" />
         </activity>
-        <activity
-            android:name="cisc.teamnine.eztrain.WorkoutSearch"
-            android:label="@string/title_activity_workout_search"
-            android:parentActivityName="cisc.teamnine.eztrain.StartWorkout" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="cisc.teamnine.eztrain.StartWorkout" />
-        </activity>
-        <activity
-            android:name="cisc.teamnine.eztrain.Workout"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_workout"
-            android:theme="@style/FullscreenTheme" >
-        </activity>
-        <activity
-            android:name="cisc.teamnine.eztrain.UpdateProgress"
-            android:label="@string/title_activity_update_progress"
-            android:parentActivityName="cisc.teamnine.eztrain.Workout" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="cisc.teamnine.eztrain.Workout" />
-        </activity>
-        <activity
-            android:name="cisc.teamnine.eztrain.DisplayWorkouts"
-            android:label="@string/title_activity_display_workouts"
-            android:parentActivityName="cisc.teamnine.eztrain.StartWorkout" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="cisc.teamnine.eztrain.StartWorkout" />
-        </activity>
+
         <activity
             android:name="cisc.teamnine.eztrain.ActiveWorkout"
             android:label="@string/title_activity_active_workout" >
         </activity>
         <activity
             android:name="cisc.teamnine.eztrain.PreviewExercise"
-            android:label="@string/title_activity_preview_exercise" >
+            android:label="@string/title_activity_preview_exercise" 
+            android:parentActivityName="cisc.teamnine.eztrain.AddExercises" >
         </activity>
         <activity
             android:name="cisc.teamnine.eztrain.PreviewDesign"
@@ -124,6 +88,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cisc.teamnine.eztrain.AddExercises" />
         </activity>
+
     </application>
 
 </manifest>
