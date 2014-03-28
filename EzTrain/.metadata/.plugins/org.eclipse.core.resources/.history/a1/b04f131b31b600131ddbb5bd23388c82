@@ -37,9 +37,9 @@ public class AddExercises extends Activity {
 	    sets = get_info.getStringArrayList("REPS");
 	    reps = get_info.getStringArrayList("SETS");
 	    
-		String exercise_name = get_info.getString("EXERCISE_NAME");
-		String set_num = get_info.getString("SET_NUM");
-		String rep_num = get_info.getString("REP_NUM");
+		String exercise_name = get_info.getString("EXERCISES");
+		String set_num = get_info.getString("SETS");
+		String rep_num = get_info.getString("REPS");
 		
 		if (!(exercise_name.equalsIgnoreCase("")))
 			updateWorkout(exercise_name, set_num, rep_num);
