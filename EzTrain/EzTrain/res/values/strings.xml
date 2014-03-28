@@ -32,6 +32,10 @@
         <item>Tricep Dips</item>
         <item>Skullcrushers</item>
         <item>French Press</item>
+        <item>Dumbbell Hammer Curls</item>
+        <item>triceps Extension</item>
+        <item>Dumbbell Concentration Curls</item>
+        <item>Lying Dumbbell Triceps Extensions</item>
     </string-array>
     
     <string-array name="shoudlers">
