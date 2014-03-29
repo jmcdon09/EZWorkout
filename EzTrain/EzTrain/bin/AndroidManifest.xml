@@ -75,11 +75,7 @@
             android:name="cisc.teamnine.eztrain.ActiveWorkout"
             android:label="@string/title_activity_active_workout" >
         </activity>
-        <activity
-            android:name="cisc.teamnine.eztrain.PreviewExercise"
-            android:label="@string/title_activity_preview_exercise" 
-            android:parentActivityName="cisc.teamnine.eztrain.AddExercises" >
-        </activity>
+
         <activity
             android:name="cisc.teamnine.eztrain.PreviewDesign"
             android:label="@string/title_activity_preview_design"

@@ -3,6 +3,9 @@ package cisc.teamnine.eztrain;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -11,17 +14,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class AddExercises extends Activity {
 
-	ArrayList<String> exercise_names;
-	ArrayList<String> sets;
-	ArrayList<String> reps;
+	ArrayList<String> exercise_names = new ArrayList<String>();
+	ArrayList<String> sets = new ArrayList<String>();
+	ArrayList<String> reps = new ArrayList<String>();
 	String workout_name;
 	String muscle_group;
-	
+	Button add;
+	Button preview;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Bundle get_info = getIntent().getExtras();
@@ -32,17 +38,6 @@ public class AddExercises extends Activity {
 		String muscle = get_info.getString("MUSCLE_GROUP");
 		workout_name = workout;
 		muscle_group = muscle;
-		
-		exercise_names = get_info.getStringArrayList("EXERCISES");
-	    sets = get_info.getStringArrayList("REPS");
-	    reps = get_info.getStringArrayList("SETS");
-	    
-		String exercise_name = get_info.getString("EXERCISE_NAME");
-		String set_num = get_info.getString("SET_NUM");
-		String rep_num = get_info.getString("REP_NUM");
-		
-		if (!(exercise_name.equalsIgnoreCase("")))
-			updateWorkout(exercise_name, set_num, rep_num);
 		
 		final TextView workout_design = (TextView) findViewById(R.id.workout_name);
 		workout_design.setText(" " + workout);
@@ -56,29 +51,24 @@ public class AddExercises extends Activity {
 		
         // Show the Up button in the action bar.
 		setupActionBar();
-
+		
 		list_view.setOnItemClickListener(new OnItemClickListener(){
 		public void onItemClick(AdapterView<?> arg0, View v, int position,
 				long id) {
-			Intent preview = new Intent(AddExercises.this, PreviewExercise.class);
-			Bundle send_info = new Bundle();
 			String exercise = list_view.getItemAtPosition(position).toString();
-			send_info.putString("EXERCISE_NAME", exercise);
-			send_info.putString("WORKOUT_NAME", workout_name);
-			send_info.putStringArrayList("EXERCISES", exercise_names);
-			send_info.putStringArrayList("SETS", reps);
-			send_info.putStringArrayList("REPS", sets);
-			
-			preview.putExtras(send_info);
-			startActivity(preview);
+			final TextView exercise_name = (TextView) findViewById(R.id.add_exercise_name);
+			exercise_name.setText(exercise);
 		}
     });    
+		add = (Button) findViewById(R.id.add_exercise);
+		add.setOnClickListener(handler);
+		
+		preview = (Button) findViewById(R.id.preview_workout);
+		preview.setOnClickListener(handler);
 	}
 	
 	public String[] listExercises(String muscle){
 		String exercises[];
-		final TextView test = (TextView) findViewById(R.id.spinner_result);
-		test.setText(muscle);
 		if (muscle.equalsIgnoreCase("Chest")){
 			exercises =  getResources().getStringArray(R.array.chest);			
 		}
@@ -98,12 +88,6 @@ public class AddExercises extends Activity {
 			exercises =  getResources().getStringArray(R.array.shoudlers);			
 		}
 		return exercises;
-	}
-	
-	private void updateWorkout(String exercise, String set, String rep){
-		exercise_names.add(exercise);
-		sets.add(set);
-		reps.add(rep);
 	}
 	
 	private void setupActionBar() {
@@ -128,5 +112,63 @@ public class AddExercises extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+    View.OnClickListener handler = new View.OnClickListener() {
+    	  public void onClick(View v) {
+    	      switch(v.getId()) {
+    	      	case R.id.add_exercise:
+    	      		
+    	      		//ArrayList<String> exercise_list = new ArrayList<String>();
+    	      		//ArrayList<String> sets = new ArrayList<String>();
+    	      		//ArrayList<String> reps = new ArrayList<String>();
+    				final TextView exercise_name = (TextView) findViewById(R.id.add_exercise_name);
+    	      		String exercise = exercise_name.getText().toString();
+    	      		exercise_names.add(exercise);
+    	      		
+    	      		final EditText set_num = (EditText) findViewById(R.id.add_exercise_set_input);
+    	      		String set = set_num.getText().toString();
+    	      		sets.add(set);
+    	      		
+    	      		final EditText rep_num = (EditText) findViewById(R.id.add_exercise_rep_input);
+    	      		String rep = rep_num.getText().toString();
+    	      		reps.add(rep);
+    	      		
+    	      		resetFields();
+    	      	break;
+    	      		
+    	      	
+    	      	case R.id.preview_workout:
+    	          // it was the first button
+    	        	Intent workout_select = new Intent(AddExercises.this, PreviewDesign.class);
+    	        	Bundle info = new Bundle();
+    	        	
+    	        	if(exercise_names.size() < 1){
+    	        		break;
+    	        	}
+    	        	info.putString("WORKOUT_NAME", workout_name);
+    	        	info.putString("MUSCLE_GROUP", muscle_group);
+    	        	
+    	        	info.putStringArrayList("EXERCISES", exercise_names);
+    	        	info.putStringArrayList("SETS", sets);
+    	        	info.putStringArrayList("REPS", reps);
+    	        	
+    	        	workout_select.putExtras(info);
+    	        	startActivity(workout_select);
+    	          break;
+    	          
+    	      }
+    	  }
+    	  
+    };
+    
+    private void resetFields(){
+  		TextView exercise_name = (TextView) findViewById(R.id.add_exercise_name);
+  		exercise_name.setText("");
+  		
+  		EditText set_num = (EditText) findViewById(R.id.add_exercise_set_input);
+  		set_num.setText("", TextView.BufferType.EDITABLE);
 
+  		EditText rep_num = (EditText) findViewById(R.id.add_exercise_rep_input);
+  		rep_num.setText("", TextView.BufferType.EDITABLE);
+    }
+    
 }

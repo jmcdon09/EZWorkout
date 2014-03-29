@@ -13,7 +13,6 @@ import android.view.View;
 //import android.widget.AdapterView;
 //import android.widget.ArrayAdapter;
 import android.widget.Button;
-//import android.widget.ListView;
 
 public class HomeScreen extends Activity {
 	
@@ -39,17 +38,14 @@ public class HomeScreen extends Activity {
     	  public void onClick(View v) {
     	      switch(v.getId()) {
     	        case R.id.start_workout:
-    	          // it was the first button
-    	        	Intent workout_select = new Intent(HomeScreen.this, MyWorkouts.class);
+    	           	Intent workout_select = new Intent(HomeScreen.this, MyWorkouts.class);
     	        	startActivity(workout_select);
     	          break;
     	        case R.id.my_progress:
-    	          // it was the second button
     	        	Intent progress = new Intent(HomeScreen.this, MyProgress.class);
     	        	startActivity(progress);
     	          break;
     	        case R.id.design_workout:
-    	        	//design
     	        	Intent design_workout = new Intent(HomeScreen.this, DesignWorkout.class);
     	        	startActivity(design_workout);
     	          break;

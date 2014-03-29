@@ -1,19 +1,47 @@
 package cisc.teamnine.eztrain;
 
-import android.os.Bundle;
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class PreviewDesign extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Bundle info = getIntent().getExtras();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_preview_design);
+
+    	String workout = info.getString("WORKOUT_NAME");
+    	info.getString("MUSCLE_GROUP");
+    	
+    	ArrayList<String> exercises = info.getStringArrayList("EXERCISES");
+    	info.getStringArrayList("SETS");
+    	info.getStringArrayList("REPS");
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		final TextView workout_name = (TextView) findViewById(R.id.preview_workout_name);
+		workout_name.setText(workout);
+		
+		final ListView list_view = (ListView) findViewById(R.id.exercise_list);
+		String exercise_list[] = listExercises(exercises);
+        list_view.setAdapter(new ArrayAdapter<String>(this, R.layout.list_row, exercise_list));
+	}
+	
+	public String[] listExercises(ArrayList<String> exercises){
+		String exercise_list[] = new String[exercises.size()];
+		for (int i=0; i < exercises.size(); i ++){
+			exercise_list[i]= exercises.get(i);
+		}
+		return exercise_list;
 	}
 
 	/**

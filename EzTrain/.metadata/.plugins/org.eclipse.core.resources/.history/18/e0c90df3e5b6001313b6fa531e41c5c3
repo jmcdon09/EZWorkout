@@ -1,0 +1,160 @@
+package cisc.teamnine.eztrain;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+public class AddExercises extends Activity {
+
+	ArrayList<String> exercise_names;
+	ArrayList<String> sets;
+	ArrayList<String> reps;
+	String workout_name;
+	String muscle_group;
+	Button add;
+	Button preview;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		Bundle get_info = getIntent().getExtras();
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_add_exercises);
+		
+		String workout = get_info.getString("WORKOUT_NAME");
+		String muscle = get_info.getString("MUSCLE_GROUP");
+		workout_name = workout;
+		muscle_group = muscle;
+		
+		exercise_names = get_info.getStringArrayList("EXERCISES");
+	    sets = get_info.getStringArrayList("REPS");
+	    reps = get_info.getStringArrayList("SETS");
+	
+		
+		/*if (!(exercise_name.equalsIgnoreCase("")))
+			updateWorkout(exercise_name, set_num, rep_num); */
+		
+		final TextView workout_design = (TextView) findViewById(R.id.workout_name);
+		workout_design.setText(" " + workout);
+		
+		final TextView muscle_design = (TextView) findViewById(R.id.muscle_group);
+		muscle_design.setText(muscle);
+		
+		final ListView list_view = (ListView) findViewById(R.id.exercise_list);
+		String exercises[] = listExercises(muscle);
+        list_view.setAdapter(new ArrayAdapter<String>(this, R.layout.list_row, exercises));
+		
+        // Show the Up button in the action bar.
+		setupActionBar();
+
+		list_view.setOnItemClickListener(new OnItemClickListener(){
+		public void onItemClick(AdapterView<?> arg0, View v, int position,
+				long id) {
+			String exercise = list_view.getItemAtPosition(position).toString();
+			final TextView exercise_name = (TextView) findViewById(R.id.add_exercise_name);
+			exercise_name.setText(exercise);
+		}
+    });    
+	}
+	
+	public String[] listExercises(String muscle){
+		String exercises[];
+		if (muscle.equalsIgnoreCase("Chest")){
+			exercises =  getResources().getStringArray(R.array.chest);			
+		}
+		else if(muscle.equalsIgnoreCase("Abdominals")){
+			exercises =  getResources().getStringArray(R.array.abdominals);			
+		}
+		else if(muscle.equalsIgnoreCase("Arms")){
+			exercises =  getResources().getStringArray(R.array.arms);			
+		}
+		else if(muscle.equalsIgnoreCase("Back")){
+			exercises =  getResources().getStringArray(R.array.back);			
+		}
+		else if(muscle.equalsIgnoreCase("Legs")){
+			exercises =  getResources().getStringArray(R.array.legs);			
+		}
+		else{
+			exercises =  getResources().getStringArray(R.array.shoudlers);			
+		}
+		return exercises;
+	}
+	
+/*	private void updateWorkout(String exercise, String set, String rep){
+		exercise_names.add(exercise);
+		sets.add(set);
+		reps.add(rep);
+	}*/
+	
+	private void setupActionBar() {
+
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case android.R.id.home:
+			// This ID represents the Home or Up button. In the case of this
+			// activity, the Up button is shown. Use NavUtils to allow users
+			// to navigate up one level in the application structure. For
+			// more details, see the Navigation pattern on Android Design:
+			//
+			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
+			//
+				NavUtils.navigateUpFromSameTask(this);
+				return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+    View.OnClickListener handler = new View.OnClickListener() {
+    	  public void onClick(View v) {
+    	      switch(v.getId()) {
+    	      	case R.id.add_exercise:
+    	      		TextView exercise_name = (TextView) findViewById(R.id.add_exercise_name);
+    	      		String exercise = exercise_name.getText().toString();
+    	      		exercise_names.add(exercise);
+    	      		
+    	      		EditText set_num = (EditText) findViewById(R.id.add_exercise_name);
+    	      		String set = exercise_name.getText().toString();
+    	      		exercise_names.add(exercise);
+    	      		
+    	      		TextView exercise_name = (TextView) findViewById(R.id.add_exercise_name);
+    	      		String exercise = exercise_name.getText().toString();
+    	      		exercise_names.add(exercise);
+    	      		break;
+    	      		
+    	      	
+    	      	case R.id.preview_workout:
+    	          // it was the first button
+    	        	Intent workout_select = new Intent(AddExercises.this, PreviewWorkout.class);
+    	        	Bundle info = new Bundle();
+    	        	EditText name = (EditText) findViewById(R.id.design_name_enter);
+    	        	String workout =  name.getText().toString();
+    	        	info.putString("WORKOUT_NAME", workout);
+  				
+    	        	Spinner muscle_spinner = (Spinner) findViewById(R.id.muscle_group_spinner);
+    	        	String muscle = muscle_spinner.getSelectedItem().toString();
+    	        	info.putString("MUSCLE_GROUP", muscle);
+  				
+    	        	workout_select.putExtras(info);
+    	        	startActivity(workout_select);
+    	          break;
+    	          
+    	      }
+    	  }
+    	  
+    };
+}

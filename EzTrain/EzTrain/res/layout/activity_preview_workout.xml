@@ -48,20 +48,20 @@
                 android:id="@+id/table_exercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/table_exercise" />
+                android:text="@string/exercise" />
 
             <TextView
                 android:id="@+id/table_sets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/table_sets" />
+                android:text="@string/sets" />
 
             <TextView
                 android:id="@+id/table_reps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/table_reps" />
+                android:text="@string/reps" />
 
         </TableRow>
 
