@@ -3,12 +3,18 @@ package cisc.teamnine.eztrain;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class PreviewDesign extends Activity {
@@ -20,29 +26,59 @@ public class PreviewDesign extends Activity {
 		setContentView(R.layout.activity_preview_design);
 
     	String workout = info.getString("WORKOUT_NAME");
-    	info.getString("MUSCLE_GROUP");
+    	String muscle = info.getString("MUSCLE_GROUP");
     	
     	ArrayList<String> exercises = info.getStringArrayList("EXERCISES");
-    	info.getStringArrayList("SETS");
-    	info.getStringArrayList("REPS");
+    	ArrayList<String> sets = info.getStringArrayList("SETS");
+    	ArrayList<String> reps = info.getStringArrayList("REPS");
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
 		final TextView workout_name = (TextView) findViewById(R.id.preview_workout_name);
-		workout_name.setText(workout);
+		workout_name.setText("Preview of " + workout);
 		
-		final ListView list_view = (ListView) findViewById(R.id.exercise_list);
-		String exercise_list[] = listExercises(exercises);
-        list_view.setAdapter(new ArrayAdapter<String>(this, R.layout.list_row, exercise_list));
+		final TextView muscle_group = (TextView) findViewById(R.id.preview_muscle_group);
+		muscle_group.setText("Targetting: " + muscle);
+		
+		
+		TableLayout workout_design = (TableLayout) findViewById(R.id.preview_workout_table);
+		TextView exercise = (TextView) findViewById(R.id.preview_exercise);
+		exercise.setText("Exercises");
+		TextView set = (TextView) findViewById(R.id.preview_set);
+		set.setText("Sets");
+		TextView rep = (TextView) findViewById(R.id.preview_rep);
+		rep.setText("Reps");
+		
+		// Create the table
+		for (int i=0; i < exercises.size(); i++){
+			TableRow tr = new TableRow(this);
+			TableLayout.LayoutParams row_params = new TableLayout.LayoutParams(
+					LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT);
+			
+			TextView exercise_name = new TextView(this);
+			exercise_name.setText(exercises.get(i));
+			exercise_name.setTextAppearance(getBaseContext(), android.R.style.TextAppearance_Medium_Inverse);
+			
+			TextView set_num = new TextView(this);
+			set_num.setText(sets.get(i));
+			set_num.setTextAppearance(getBaseContext(), android.R.style.TextAppearance_Medium_Inverse);
+
+			TextView rep_num = new TextView(this);
+			rep_num.setText(reps.get(i));
+			rep_num.setTextAppearance(getBaseContext(), android.R.style.TextAppearance_Medium_Inverse);
+			
+			tr.addView(exercise_name);
+			tr.addView(set_num);
+			tr.addView(rep_num);
+			
+			workout_design.addView(tr, row_params);
+		}
+		
+		Button save_workout = (Button) findViewById(R.id.save_workout);
+		save_workout.setOnClickListener(handler);
 	}
 	
-	public String[] listExercises(ArrayList<String> exercises){
-		String exercise_list[] = new String[exercises.size()];
-		for (int i=0; i < exercises.size(); i ++){
-			exercise_list[i]= exercises.get(i);
-		}
-		return exercise_list;
-	}
 
 	/**
 	 * Set up the {@link android.app.ActionBar}.
@@ -76,5 +112,19 @@ public class PreviewDesign extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	   View.OnClickListener handler = new View.OnClickListener() {
+		  	  public void onClick(View v) {
+		  	      switch(v.getId()) {
+		  	        case R.id.design_workout_begin:
+		  	          // it was the first button
+		  	        	Intent workout_save = new Intent(PreviewDesign.this, HomeScreen.class);
+		  	        	startActivity(workout_save);
+		  	        	//datamanager, read and write to file
+		  	          break;
+		  	      }
+	 
+		  	  }
+	};
 
 }

@@ -99,6 +99,7 @@
     <string name="weight">Weight</string>
     <string name="error_design_fill_sections">Fill out all sections before clicking Add Exercise!</string>
     <string name="error_empty_preview">Need at least one exercise added before preview!</string>
+    <string name="save_workout">Save Workout</string>
     
     
 
