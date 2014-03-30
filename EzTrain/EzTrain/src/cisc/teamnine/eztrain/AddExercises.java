@@ -43,7 +43,7 @@ public class AddExercises extends Activity {
 		workout_design.setText(" " + workout);
 		
 		final TextView muscle_design = (TextView) findViewById(R.id.muscle_group);
-		muscle_design.setText(muscle);
+		muscle_design.setText("Muscle group: " + muscle);
 		
 		final ListView list_view = (ListView) findViewById(R.id.exercise_list);
 		String exercises[] = listExercises(muscle);

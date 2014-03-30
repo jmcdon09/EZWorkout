@@ -15,13 +15,13 @@
     <string-array name="my_workouts">
         <item>Biceps</item>
         <item>Major Chest Workout</item>
-        <item>Destroyer of Arms</item>
+        <item>Chest Destroyer</item>
         <item>Ab Crusher</item>
     </string-array>
 
     <string-array name="chest">
         <item>Benchpress</item>
-        <item>Butterflys</item>
+        <item>DB Flys</item>
         <item>Push Ups</item>
         <item>Iron Cross</item>
         <item>Decline Dumbell Press</item>
