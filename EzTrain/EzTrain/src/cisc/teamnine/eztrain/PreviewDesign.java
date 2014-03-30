@@ -49,24 +49,36 @@ public class PreviewDesign extends Activity {
 		TextView rep = (TextView) findViewById(R.id.preview_rep);
 		rep.setText("Reps");
 		
+		TableLayout.LayoutParams row_params = new TableLayout.LayoutParams(
+				LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT, 100);
+		
+		TableRow.LayoutParams col1_params = new TableRow.LayoutParams(
+				LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT, 50);
+		
+		TableRow.LayoutParams col2_params = new TableRow.LayoutParams(
+				LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT, 25);
 		// Create the table
 		for (int i=0; i < exercises.size(); i++){
 			TableRow tr = new TableRow(this);
-			TableLayout.LayoutParams row_params = new TableLayout.LayoutParams(
-					LayoutParams.WRAP_CONTENT,
-					LayoutParams.WRAP_CONTENT);
+
 			
 			TextView exercise_name = new TextView(this);
 			exercise_name.setText(exercises.get(i));
 			exercise_name.setTextAppearance(getBaseContext(), android.R.style.TextAppearance_Medium_Inverse);
+			exercise_name.setLayoutParams(col1_params);
 			
 			TextView set_num = new TextView(this);
 			set_num.setText(sets.get(i));
 			set_num.setTextAppearance(getBaseContext(), android.R.style.TextAppearance_Medium_Inverse);
+			set_num.setLayoutParams(col2_params);
 
 			TextView rep_num = new TextView(this);
 			rep_num.setText(reps.get(i));
 			rep_num.setTextAppearance(getBaseContext(), android.R.style.TextAppearance_Medium_Inverse);
+			rep_num.setLayoutParams(col2_params);
 			
 			tr.addView(exercise_name);
 			tr.addView(set_num);

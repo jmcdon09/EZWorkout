@@ -4,7 +4,13 @@
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentManager"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="cisc.teamnine.eztrain.R.drawable"/>
-<fullyQualifiedTypeName name="cisc.teamnine.eztrain.R.string"/>
 <fullyQualifiedTypeName name="cisc.teamnine.eztrain.R.array"/>
+<fullyQualifiedTypeName name="android.widget.TextView.BufferType"/>
+<fullyQualifiedTypeName name="cisc.teamnine.eztrain.R.string"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup.LayoutParams"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.style"/>
+<fullyQualifiedTypeName name="android.widget.TableLayout"/>
 <fullyQualifiedTypeName name="cisc.teamnine.eztrain.R.id"/>
+<fullyQualifiedTypeName name="android.widget.TableLayout.LayoutParams"/>
 </qualifiedTypeNameHistroy>

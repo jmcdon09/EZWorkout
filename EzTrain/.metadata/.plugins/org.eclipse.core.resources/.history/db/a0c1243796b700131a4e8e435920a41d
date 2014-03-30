@@ -1,0 +1,14 @@
+package cisc.teamnine.eztrain;
+
+import java.util.ArrayList;
+
+public class DataManager {
+	
+/*	public static ArrayList<Workouts> getAllWorkouts(){
+		ArrayList<Workouts> workout_list = new ArrayList<Workouts>();
+		
+		//access file containing workouts here
+		
+		return workout_list;
+	}*/
+}
