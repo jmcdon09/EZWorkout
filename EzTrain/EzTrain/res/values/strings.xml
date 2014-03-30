@@ -15,6 +15,8 @@
     <string-array name="my_workouts">
         <item>Biceps</item>
         <item>Major Chest Workout</item>
+        <item>Destroyer of Arms</item>
+        <item>Ab Crusher</item>
     </string-array>
 
     <string-array name="chest">
@@ -89,7 +91,7 @@
     <string name="action_home">Home</string>
     <string name="exercise1">Bench press </string>
     <string name="set1">4</string>
-    <string name="rep1">8#821112</string>
+    <string name="rep1">12</string>
     <string name="hello_world">Hello world!</string>
     <string name="preview_workout">Preview Workout</string>
     <string name="title_activity_preview_design">Preview Design</string>

@@ -30,8 +30,8 @@ public class AddExercises extends Activity {
 	Button preview;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Bundle get_info = getIntent().getExtras();
 		super.onCreate(savedInstanceState);
+		Bundle get_info = getIntent().getExtras();
 		setContentView(R.layout.activity_add_exercises);
 		
 		String workout = get_info.getString("WORKOUT_NAME");
@@ -117,9 +117,6 @@ public class AddExercises extends Activity {
     	      switch(v.getId()) {
     	      	case R.id.add_exercise:
     	      		
-    	      		//ArrayList<String> exercise_list = new ArrayList<String>();
-    	      		//ArrayList<String> sets = new ArrayList<String>();
-    	      		//ArrayList<String> reps = new ArrayList<String>();
     				final TextView exercise_name = (TextView) findViewById(R.id.add_exercise_name);
     	      		String exercise = exercise_name.getText().toString();
     	      		exercise_names.add(exercise);

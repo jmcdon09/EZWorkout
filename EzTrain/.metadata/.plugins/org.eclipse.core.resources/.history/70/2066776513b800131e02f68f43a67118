@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EZWorkout</string>
+        
+    <string-array name="muscle_groups">
+        <item>Arms</item>
+        <item>Abdominals</item>
+        <item>Chest</item>
+        <item>Back</item>
+        <item>Legs</item>
+        <item>Shoulders</item>
+    </string-array>
+    
+    <string-array name="my_workouts">
+        <item>Biceps</item>
+        <item>Major Chest Workout</item>
+    </string-array>
+
+    <string-array name="chest">
+        <item>Benchpress</item>
+        <item>Butterflys</item>
+        <item>Push Ups</item>
+        <item>Iron Cross</item>
+        <item>Decline Dumbell Press</item>
+        <item></item>
+    </string-array>
+    
+    <string-array name="arms">
+        <item>Bicep Curls</item>
+        <item>Spider Curls</item>
+        <item>Tricep Dips</item>
+        <item>Skullcrushers</item>
+        <item>French Press</item>
+    </string-array>
+    
+    <string-array name="shoudlers">
+        <item>Shoulder Abduction</item>
+        <item>Military Press</item>
+    </string-array>
+    
+    <string-array name="abdominals">
+        <item>Crunches</item>
+        <item>Russian Twists</item>
+        <item>Sit-ups</item>
+        <item>Toe Touches</item>
+    </string-array>
+    
+    <string-array name="legs">
+        <item>One Legged Squats</item>
+        <item>Romanian Deadlifts</item>
+        <item>Trap Bar Deadlifts</item>
+        <item>Box Jumps</item>
+    </string-array>
+    
+    <string-array name="back">
+        <item>Standing Good Mornings</item>
+        <item>Seated Good Mornings</item>
+        <item>Reverse Hypers</item>
+        <item>Chin Ups</item>
+    </string-array>
+    
+    <string name="workout_now">Start Workout</string>
+    <string name="progress">My Progress</string>
+    <string name="design_work">Design Workout</string>
+    <string name="title_activity_start_workout">Start Workout</string>
+    <string name="title_activity_my_progress">My Progress</string>
+    <string name="title_activity_design_workout">Design Workout</string>
+    <string name="title_activity_add_exercises">Add Exercises</string>
+    <string name="title_activity_create_exercise">Create Exercise</string>
+    <string name="title_activity_preview_workout">Preview Workout</string>
+    <string name="title_activity_my_workouts">My Workouts</string>
+    <string name="title_activity_workout">Workout</string>
+    <string name="title_activity_active_workout">Active Workout</string>
+    <string name="workout_name">Workout Name</string>
+    <string name="return_workout"></string>
+    <string name="action_settings">Action Settings</string>
+    <string name="add_exercise_to_workout">Add Exercises to </string>
+    <string name="add_exercise">Add Exercise</string>
+    <string name="begin_design">Start Design</string>
+    <string name="create_exercise">Create Exercise</string>
+    <string name="muscle_group">Muscle Group</string>
+    <string name="workout_description">Workout Description</string>
+    <string name="my_workouts">My Workouts</string>
+    <string name="start_workout">Start Workout</string>
+    <string name="browse_workouts">Browse Workouts</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="rep_hint">Rep hint goes here</string>
+    <string name="action_home">Home</string>
+    <string name="exercise1">Bench press </string>
+    <string name="set1">4</string>
+    <string name="rep1">8#821112</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="preview_workout">Preview Workout</string>
+    <string name="title_activity_preview_design">Preview Design</string>
+    <string name="exercise">Exercise</string>
+    <string name="sets">Sets</string>
+    <string name="reps">Reps</string>
+    <string name="weight">Weight</string>
+    <string name="error_design_fill_sections">Fill out all sections before clicking Add Exercise!</string>
+    <string name="error_empty_preview">Need at least one exercise added before preview!</string>
+    <string name="save_workout">Save Workout</string>
+    
+    
+
+</resources>

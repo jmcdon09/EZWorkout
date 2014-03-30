@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.33"
             android:text="@string/design_work" />
+        
     </LinearLayout>
 
 </LinearLayout>

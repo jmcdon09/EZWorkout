@@ -1,0 +1,50 @@
+package cisc.teamnine.eztrain;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import android.content.Context;
+
+public class DataManager {
+	
+	private String filepath;
+	File myInternalFile;
+/*	public static ArrayList<Workouts> getAllWorkouts(){
+		ArrayList<Workouts> workout_list = new ArrayList<Workouts>();
+		
+		//access file containing workouts here
+		
+		return workout_list;
+	}*/
+	
+	public void newWorkout(String name, String muscle, ArrayList<String> exercises, ArrayList<String> sets, ArrayList<String> reps, Context ctx){
+		 String eol = System.getProperty("line.separator");
+		try {
+			 FileOutputStream fos = ctx.getApplicationContext().openFileOutput(name, Context.MODE_PRIVATE);
+			 
+			 fos.write(name.getBytes());
+			 fos.write(eol.getBytes());
+			 fos.write(muscle.getBytes());
+			 fos.write(eol.getBytes());
+		 for (int i=0; i < exercises.size(); i++){
+			 fos.write(exercises.get(i).getBytes());
+		 }
+		 fos.write(eol.getBytes());
+		 for (int i=0; i < sets.size(); i++){
+			 fos.write(sets.get(i).getBytes());
+		 }
+		 fos.write(eol.getBytes());
+		 for (int i=0; i < reps.size(); i++){
+			 fos.write(reps.get(i).getBytes());
+		 }
+		 fos.write(eol.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+}

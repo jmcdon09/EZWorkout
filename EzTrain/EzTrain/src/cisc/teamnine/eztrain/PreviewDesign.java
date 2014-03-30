@@ -18,7 +18,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class PreviewDesign extends Activity {
-
+	
+	String FILENAME;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Bundle info = getIntent().getExtras();
@@ -131,6 +132,8 @@ public class PreviewDesign extends Activity {
 		  	        case R.id.design_workout_begin:
 		  	          // it was the first button
 		  	        	Intent workout_save = new Intent(PreviewDesign.this, HomeScreen.class);
+		  	        	
+		  	    
 		  	        	startActivity(workout_save);
 		  	        	//datamanager, read and write to file
 		  	          break;

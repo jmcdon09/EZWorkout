@@ -13,4 +13,5 @@
 <fullyQualifiedTypeName name="android.widget.TableLayout"/>
 <fullyQualifiedTypeName name="cisc.teamnine.eztrain.R.id"/>
 <fullyQualifiedTypeName name="android.widget.TableLayout.LayoutParams"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
 </qualifiedTypeNameHistroy>

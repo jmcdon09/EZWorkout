@@ -2,16 +2,14 @@ package cisc.teamnine.eztrain;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import android.content.Context;
 
 public class DataManager {
 	
-	private String filepath = "MyWorkouts";
-	File myInternalFile;
 /*	public static ArrayList<Workouts> getAllWorkouts(){
 		ArrayList<Workouts> workout_list = new ArrayList<Workouts>();
 		
@@ -20,23 +18,27 @@ public class DataManager {
 		return workout_list;
 	}*/
 	
-	public void newWorkout(String name, String muscle, ArrayList<String> exercises, ArrayList<String> sets, ArrayList<String> reps){
+	public void newWorkout(String name, String muscle, ArrayList<String> exercises, ArrayList<String> sets, ArrayList<String> reps, Context ctx){
 		 String eol = System.getProperty("line.separator");
-		 BufferedWriter writer = null;
 		try {
-		 //writer = new BufferedWriter(new OutputStreamWriter(OpenFileOutput("data/data/cisc.teamnine.extrain/file/MyWorkouts/" + name, Context.MODE_PRIVATE)));
-		 writer.write(name);
-		 writer.write(muscle);
-		 
+			 FileOutputStream fos = ctx.getApplicationContext().openFileOutput(name, Context.MODE_PRIVATE);
+			 
+			 fos.write(name.getBytes());
+			 fos.write(eol.getBytes());
+			 fos.write(muscle.getBytes());
+			 fos.write(eol.getBytes());
 		 for (int i=0; i < exercises.size(); i++){
-			 writer.write(exercises.get(i));
+			 fos.write(exercises.get(i).getBytes());
 		 }
+		 fos.write(eol.getBytes());
 		 for (int i=0; i < sets.size(); i++){
-			 writer.write(sets.get(i));
+			 fos.write(sets.get(i).getBytes());
 		 }
+		 fos.write(eol.getBytes());
 		 for (int i=0; i < reps.size(); i++){
-			 writer.write(reps.get(i));
+			 fos.write(reps.get(i).getBytes());
 		 }
+		 fos.write(eol.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
